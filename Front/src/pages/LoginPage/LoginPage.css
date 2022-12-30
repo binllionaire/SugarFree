@@ -29,7 +29,10 @@
   background-color: #d3d3d3;
 }
 
-
+.web_loginPage{
+  width: 50%;
+  margin:0 auto 0 auto;
+}
 .title {
   font-family: 'GowunBatang-Regular';
   margin-top: 10px;
@@ -45,22 +48,11 @@
   margin: 5px 0px 5px 10px;
 }
 
-
-
-.input {
-  width: 100px;
-  height: 20px;
-  background-color: #FFBCAF;
-  border: 1px solid black;
-  border-radius: 5px;
-
-}
-
 .input {
   display: inline-block;
   margin: 10px 0px 10px 10px;
-  width: 50%;
-  height: 32px;
+  width: 100%;
+  height: 40px;
   font-size: 15px;
   border: 0;
   border-radius: 15px;
@@ -68,4 +60,15 @@
   padding-left: 10px;
   background-color: #d3d3d3;
 
+}
+#resistb{
+  font-family: 'GowunBatang-Regular';
+  color:#808080;
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  text-decoration : underline;
+  text-underline-position : under;
+  text-decoration-color : #808080;
+  cursor: pointer;
 }

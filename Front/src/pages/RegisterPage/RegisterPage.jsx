@@ -185,7 +185,6 @@ const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
             </div>
             <br />
             <p className='rtitle'>닉네임</p>
-
             <input className="web_rinput"
                 type="text"
                 placeholder='사람들에게 보여질 이름을 입력해주세요'

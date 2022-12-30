@@ -4,6 +4,7 @@ import { Route, useNavigate } from 'react-router-dom';
 import axios from '../../utils/api';
 import setAuthorizationToken from "../../utils/auth_login"
 import './LoginPage.css';
+import { isMobile } from 'react-device-detect';
 
 axios.defaults.withCredentials = true;
 
@@ -95,6 +96,9 @@ const InputField = ({ data, onChange }) => {
     };
 
     return (
+        <>
+        {isMobile ? (
+            <>
         <div className='loginPage'>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
@@ -102,30 +106,60 @@ const InputField = ({ data, onChange }) => {
 
             <p className="title">로그인</p>
             <p className="font">아이디</p>
-            <input className='input'
+            <input className='rinput'
                 type="text"
-                placeholder='ID'
                 name="id"
                 onChange={handleChange}
                 value={data.id} />
             <p className='font'>비밀번호</p>
-            <input className='input'
+            <input className='rinput'
                 type="password"
-                placeholder='PWD'
+                name="pw"
+                onChange={handleChange}
+                value={data.pw} />
+            <br />
+            <button className="resisBtn2" onClick={handleClick}>로그인</button>
+            <p id='resistb' onClick={page2Register}>
+                회원가입
+            </p>
+        </div>
+        </>
+        ) :
+
+        (
+
+        <div className='web_loginPage'>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+            </style>
+
+            <p className="title">로그인</p>
+            <p className="rtitle">아이디</p>
+            <input className='web_rinput'
+                type="text"
+                name="id"
+                onChange={handleChange}
+                value={data.id} />
+            <br/>
+            <p className='rtitle'>비밀번호</p>
+            <input className='web_rinput'
+                type="password"
                 name="pw"
                 onChange={handleChange}
                 value={data.pw} />
             <br />
 
-            <button onClick={handleClick} onMouseEnter={click} onMouseLeave={click} className="button" type="button">
-                로그인
-            </button>
-            <button onClick={page2Register} onMouseEnter={cclick} onMouseLeave={cclick} className="button" type="button">
+            <button className="resisBtn2" onClick={handleClick}>로그인</button>
+            <p id='resistb' onClick={page2Register}>
                 회원가입
-            </button>
+            </p>
         </div>
+        )
+}
+        </>
 
     );
+    
 }
 
 export default LoginPage;

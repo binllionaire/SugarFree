@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import './GiveCandyPage.css';
 import CustomPopup from "./CustomPopup";
+import { isMobile } from 'react-device-detect';
 import axios from "../../utils/api"
 
 const GiveCandyPage = () => {
@@ -28,8 +29,24 @@ const GiveCandyPage = () => {
   const [userUrl, setUserUrl] = useState("");
 
   return (
-
+    <>
+    {isMobile ? (
     <div className="giveCandyPage" >
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+      </style>
+      <br></br>
+      <p className="m_font1">{userName}님의 선물함</p>
+      <div id='c'>
+      <img className="m_cmi" src={"/img/candyMachine_512.png"} alt="candyMachine" />
+      </div>
+
+      <button onClick={inputName} className="giveBtn" >
+        선물하기</button>
+
+    </div>
+        ):(
+          <div className="giveCandyPage" >
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
       </style>
@@ -38,13 +55,16 @@ const GiveCandyPage = () => {
 
       <img className="cmi" src={"/img/candyMachine_512.png"} alt="candyMachine" />
 
-
+      
       <button onClick={inputName} className="giveBtn" >
-        <img className="giftImage" src={"/img/gift.png"} width="20px"></img>
+       
         선물하기</button>
 
-
     </div>
+        )
+
+    }
+    </>
   );
 }
 

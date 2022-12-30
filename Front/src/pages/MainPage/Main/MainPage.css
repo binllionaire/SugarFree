@@ -44,6 +44,7 @@
   background-color: #F2DBD8;
 }
 .loginBtn {
+  margin-top: 30px;
   font-family: 'GowunBatang-Regular';
   right: 0;
   position: absolute;
@@ -56,6 +57,7 @@
   background: none;
   color: black;
   border: transparent;
+  cursor: pointer;
 }
 .web_loginBtn {
   font-family: 'GowunBatang-Regular';
@@ -71,6 +73,7 @@
   color: black;
   border: transparent;
   margin-bottom: 500px;
+  cursor: pointer;
 }
 .web_resistBtn {
   font-family: 'GowunBatang-Regular';
@@ -84,8 +87,10 @@
   background: none;
   color: black;
   border: transparent;
+  cursor: pointer;
 }
 .resistBtn {
+  margin-top: 30px;
   font-family: 'GowunBatang-Regular';
   position: absolute;
   width: 100px;

@@ -51,33 +51,32 @@ const MainPage = () => {
 
           <div className="sugar_box" style={{ position: "relative" }}>
 
-            <div style={{ position: "absolute", left: 200, top: 190, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 185, top: 180, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 150, top: 190, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 130, top: 180, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 210, top: 95, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 190, top: 85, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 110, top: 120, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 90, top: 110, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 150, top: 140, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 140, top: 130, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 200, top: 140, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 180, top: 130, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 250, top: 140, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 230, top: 130, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
-            <div style={{ position: "absolute", left: 150, top: 90, opacity: 0.6 }}>
+            <div style={{ position: "absolute", left: 130, top: 80, opacity: 0.6 }}>
               <Bounce emoji_num={getRandom(1, 32)} />
             </div>
 
-
-            <img className="cmi" src={"/img/candyMachine_512.png"} alt="candyMachine" />
+            <img className="m_cmi" src={"/img/candyMachine_512.png"} alt="candyMachine" />
             <button className="loginBtn" onClick={loginClick} onMouseEnter={click} onMouseLeave={click} type="button">
               로그인
             </button>

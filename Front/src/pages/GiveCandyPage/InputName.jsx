@@ -29,15 +29,13 @@ const InputName = () => {
       </style>
       <br></br>
       <p className="font1">당신의 이름은?</p>
-
-
       <input className="input" type="text"
         onChange={saveNickname}
       >
       </input>
 
       <button onClick={typeSelect} className="nextBtn">
-        <img className="nextImg" src={"/img/next.png"} width="20px"></img>
+       
         다음</button>
 
 
