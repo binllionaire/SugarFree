@@ -20,9 +20,18 @@
   width: 100%;
 }
 .font1 {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
   text-align: center;
+  display: block;
+}
+.typeSelectT{
+  font-family: 'GowunBatang-Regular';
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  display: block;
 }
 .m_font1 {
   margin-top: 30px;
@@ -41,17 +50,16 @@ label {
   margin-top: 20px;
 }
 
-.img:hover {
-  border: #808080 1px solid;
+.img:hover{
+  box-shadow: 0 0 0 1px #808080 inset;
+  padding: 5px;
   border-radius: 10px;
 }
 
-label:hover {
-  font-weight: 700;
-}
+
 
 .nextBtn{
-  margin:40px auto 0 auto;
+  margin:30px auto 0 auto;
   display: block;
   width: 150px;
   height: 40px;
@@ -111,7 +119,7 @@ label:hover {
   background-color: #d3d3d3;
 }
 .giveBtn{
-  margin:25px auto 0 auto;
+  margin:40px auto 0 auto;
   display: block;
   width: 150px;
   height: 40px;
@@ -181,14 +189,23 @@ label:hover {
   height: 100%;
   background-color: #F2DBD8;
 }
-
+.m_selectGift{
+  text-align: center;
+  width: 50%;
+  margin: 0 auto 0 auto;
+}
 .typeSelect {
   text-align: center;
   width: 100%;
   height: 100%;
   background-color: #F2DBD8;
 }
-
+.web_typeSelect{
+  text-align: center;
+  width: 50%;
+  margin: 0 auto 0 auto;
+  background-color: #F2DBD8;
+}
 .selectGift {
   text-align: center;
   width: 100%;
@@ -198,15 +215,14 @@ label:hover {
 
 .inputName {
   text-align: center;
-
   width: 100%;
   height: 100%;
   background-color: #F2DBD8;
 }
 
 .grayBox {
-  padding: 20px;
-  margin: 10px auto;
+  padding:5px 15px 5px 15px;
+  margin: 0px auto;
   background-color: #d3d3d3;
   border-radius: 20px;
   width: 70%;
@@ -222,7 +238,7 @@ label:hover {
 
 .grayBox.click {
 
-  border: #808080 2px solid;
+  box-shadow: 0 0 0 3px #808080 inset;
 }
 
 .giveGiftImg {
@@ -231,16 +247,21 @@ label:hover {
 }
 
 .intro {
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   font-family: 'GowunBatang-Regular';
 }
-
+.web_inputName{
+  width: 50%;
+  margin: 0 auto 0 auto;
+}
 .input {
+  text-align: center;
+  font-family: 'GowunBatang-Regular';
   display: block;
   margin: 10px auto;
-  width: 90%;
-  height: 32px;
+  width: 70%;
+  height: 40px;
   font-size: 15px;
   border: 0;
   border-radius: 15px;

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
+import { isMobile } from 'react-device-detect';
 
 const GiftOption = ["사탕", "초콜릿", "기타", "유머"];
 const GiftList = ["candyList", "chocoList", "etcList", "humorList"];
 const candyList = ["candy_candyBall_250.png", "candy_cane_250.png", "candy_chup_250.png", "candy_chupa_250.png", "candy_lollipop_250.png", "candy_plastick_250.png"
     , "candy_roll_250.png", "candy_stick_250.png"];
 const chocoList = ["chocolate_bar_250.png", "chocolate_bar2_250.png", "chocolate_box_250.png", "chocolate_boxgift_250.png", "chocolate_chocolate_250.png",
-    "chocolate_gana_250.png", "chocolate_mush_250.png", "chocolate_snack_250.png"];
+    "chocolate_gana_250.png", "chocolate_snack_250.png","chocolate_mush_250.png"];
 const etcList = ["etc_airpod_250.png", "etc_bbbear_250.png", "etc_doll_250.png", "etc_goldring_250.png", "etc_lipstick_250.png", "etc_pebriz_250.png",
     "etc_perfume_250.png", "etc_ring_250.png"];
 const humorList = ["humor_100_250.png", "humor_apple_250.png", "humor_bulga_250.png", "humor_concrete_250.png", "humor_fish_250.png", "humor_mosquito_250.png",
@@ -50,12 +51,14 @@ const SelectGift = () => {
     }
 
     return (
+        <>
+        {isMobile ? (
         <div className="selectGift">
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
             </style>
             <br></br>
-            <p className="font1">선물 고르기</p>
+            <p className="typeSelectT">선물 고르기</p>
             <div className="grayBox2">
 
                 <br />
@@ -74,16 +77,53 @@ const SelectGift = () => {
                 </form>
                 <div className="showgift">
 
-                    {giftoption === "0" ? candyList.map((item, index) => <img className="img" width="100" height="100" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[0] + "[" + index + "]"} />) : null}
-                    {giftoption === "1" ? chocoList.map((item, index) => <img className="img" width="100" height="100" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[1] + "[" + index + "]"} />) : null}
-                    {giftoption === "2" ? etcList.map((item, index) => <img className="img" width="100" height="100" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[2] + "[" + index + "]"} />) : null}
-                    {giftoption === "3" ? humorList.map((item, index) => <img className="img" width="100" height="100" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[3] + "[" + index + "]"} />) : null}
+                    {giftoption === "0" ? candyList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[0] + "[" + index + "]"} />) : null}
+                    {giftoption === "1" ? chocoList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[1] + "[" + index + "]"} />) : null}
+                    {giftoption === "2" ? etcList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[2] + "[" + index + "]"} />) : null}
+                    {giftoption === "3" ? humorList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[3] + "[" + index + "]"} />) : null}
                 </div>
             </div>
             <button onClick={WriteMessage} className="nextBtn">
-                <img className="nextImg" src={"/img/next.png"} width="20px"></img>
+                
                 다음</button>
         </div>
+        ):(
+        <div className="m_selectGift">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+            </style>
+            <br></br>
+            <p className="typeSelectT">선물 고르기</p>
+            <div className="grayBox2">
+
+                <br />
+                <form onChange={choiceGiftOption}>
+                    <input onClick={labelClicked} type="radio" id="candy" name="gift" value="0" hidden />
+                    <label htmlFor="candy">{GiftOption[0]}</label>
+
+                    <input type="radio" id="choco" name="gift" value="1" hidden />
+                    <label htmlFor="choco">{GiftOption[1]}</label>
+
+                    <input type="radio" id="etc" name="gift" value="2" hidden />
+                    <label htmlFor="etc">{GiftOption[2]}</label>
+
+                    <input type="radio" id="humor" name="gift" value="3" hidden />
+                    <label htmlFor="humor">{GiftOption[3]}</label>
+                </form>
+                <div className="showgift">
+
+                    {giftoption === "0" ? candyList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[0] + "[" + index + "]"} />) : null}
+                    {giftoption === "1" ? chocoList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[1] + "[" + index + "]"} />) : null}
+                    {giftoption === "2" ? etcList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[2] + "[" + index + "]"} />) : null}
+                    {giftoption === "3" ? humorList.map((item, index) => <img className="img" width="80" height="80" onClick={clickitem} key={index} src={"/img/" + item} alt={GiftList[3] + "[" + index + "]"} />) : null}
+                </div>
+            </div>
+            <button onClick={WriteMessage} className="nextBtn">
+                
+                다음</button>
+        </div>
+        )}
+        </>
     );
 }
 

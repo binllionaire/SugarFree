@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import './GiveCandyPage.css';
-
+import { isMobile } from 'react-device-detect';
 
 
 const InputName = () => {
@@ -23,6 +23,8 @@ const InputName = () => {
     setNickname(e.target.value);  // 닉네임 - 서버연결
   }
   return (
+    <>
+    {isMobile ? (
     <div className="inputName" >
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
@@ -40,6 +42,28 @@ const InputName = () => {
 
 
     </div>
+  ):
+  (
+    <div className="web_inputName" >
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+      </style>
+      <br></br>
+      <p className="font1">당신의 이름은?</p>
+      <input className="input" type="text"
+        onChange={saveNickname}
+      >
+      </input>
+
+      <button onClick={typeSelect} className="nextBtn">
+       
+        다음</button>
+
+
+    </div>
+  )
+  }
+ </>
   );
 }
 
