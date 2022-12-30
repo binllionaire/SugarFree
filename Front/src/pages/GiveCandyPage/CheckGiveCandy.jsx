@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from "../../utils/api"
+import { isMobile } from 'react-device-detect';
 const CheckGiveCandy = () => {
 
     const [userName, setUserName] = useState(""); //받는 사람 : 서버연결
@@ -43,6 +44,21 @@ const CheckGiveCandy = () => {
 
     }
     return (
+        <>
+        {isMobile ? (
+        <div className="checkGiveCandy">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+            </style>
+            <br />
+            <p className="font1">{userName}님의 선물함</p>
+            <img className="m_cmi" src={"/img/candyMachine_512.png"} alt="candyMachine" />
+
+            <button onClick={goToMain} className="giveBtn" >
+                
+                메인으로</button>
+        </div>
+        ):(
         <div className="checkGiveCandy">
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
@@ -52,10 +68,11 @@ const CheckGiveCandy = () => {
             <img className="cmi" src={"/img/candyMachine_512.png"} alt="candyMachine" />
 
             <button onClick={goToMain} className="giveBtn" >
-                <img className="giftImage" src={"/img/home.png"} width="20px"></img>
+                
                 메인으로</button>
         </div>
-
+        )}
+        </>
     );
 
 }

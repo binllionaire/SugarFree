@@ -30,7 +30,7 @@ const InputName = () => {
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
       </style>
       <br></br>
-      <p className="font1">당신의 이름은?</p>
+      <p className="typeSelectT">당신의 이름은?</p>
       <input className="input" type="text"
         onChange={saveNickname}
       >
