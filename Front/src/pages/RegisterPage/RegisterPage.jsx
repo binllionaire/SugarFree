@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../utils/api';
 import './RegisterPage.css';
-
+import { isMobile } from 'react-device-detect';
 //나중에 여기에 질문 추가
 const questions = {
     "1": "당신의 고향은 어디인가요?",
@@ -10,7 +10,6 @@ const questions = {
     "3": "아버지의 성함은?",
     "4": "좋아하는 캐릭터의 이름은?"
 };
-
 
 
 const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
@@ -58,7 +57,15 @@ const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
             ['questionNum']: selectedQuestion,
         });
     };
-
+    const web_onChangeQuestion = (e) => {
+        const select = document.getElementById("web_questionSelect");
+        const selectedQuestion = select.options[select.selectedIndex].value;
+        console.log(selectedQuestion)
+        onChangeUserInfo({
+            ...userInfo,
+            ['questionNum']: selectedQuestion,
+        });
+    };
     //저장
     const handleClick = () => {
         //save시 작동
@@ -66,7 +73,8 @@ const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
     }
 
     // 비밀번호 visibility 변경
-    const pwVisibility = () => {
+    const pwVisibility = (e) => {
+        
         let pwd = document.getElementById("pwdInput");
         if (pwd.type === "password") {
             pwd.type = "text"
@@ -76,14 +84,16 @@ const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
     }
 
     return (
-
+        <>
+        {isMobile ? (
+        <>
         <div id='register-div' className='resister'>
             <p className='title'>회원가입</p>
             <p className='rtitle'>아이디</p>
-
+            <div id="id">
             <input className='rinput'
                 type="text"
-                placeholder='ID'
+                placeholder='아이디를 입력해주세요'
                 name="id"
                 onChange={handleChange}
                 value={userInfo.id}
@@ -94,33 +104,34 @@ const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
                 onClick={handleCheckDuplicate}>
                 중복확인
             </button>
+            </div>
             <br />
             <p className='rtitle'>비밀번호</p>
-
+            <div id="visi">
             <input className='rinput'
                 id='pwdInput'
                 type="password"
-                placeholder='PWD'
+                placeholder='비밀번호를 입력해주세요'
                 name="pw"
                 onChange={handleChange}
                 value={userInfo.pw}
             />
-            <input className="checkbox" type="checkbox" onClick={pwVisibility} />비밀번호 보기
+            <img id="m_visible" src="/img/visible.png" width='30px' onClick={(e)=>pwVisibility} ></img>
+            </div>
             <br />
             <p className='rtitle'>닉네임</p>
 
             <input className="rinput"
                 type="text"
-                placeholder='NICKNAME'
+                placeholder='사람들에게 보여질 이름을 입력해주세요'
                 name="nickname"
                 onChange={handleChange}
                 value={userInfo.nickname}
             />
 
-            <br />
             <p className='rtitle'>비밀번호 찾기 질문</p>
             <select id='questionSelect' onChange={onChangeQuestion} value={userInfo.questionNum}>
-                <option value='0'>질문을선택해주세요</option>
+                <option value='0'>질문을 선택해주세요</option>
                 <option value='1'>{questions["1"]}</option>
                 <option value='2'>{questions["2"]}</option>
                 <option value='3'>{questions["3"]}</option>
@@ -138,7 +149,76 @@ const InputInfo = ({ userInfo, onChangeUserInfo, onClickSave }) => {
             />
             <button className="resisBtn2" onClick={handleClick}>회원가입</button>
         </div>
+        </>
+        ):(
+        <>
+        <div id='register-div' className='web_resister'>
+            <p className='title'>회원가입</p>
+            <p className='rtitle'>아이디</p>
+            <div id='id'>
+            <input className='web_rinput'
+                type="text"
+                placeholder='아이디를 입력해주세요'
+                name="id"
+                onChange={handleChange}
+                value={userInfo.id}
+            />
+            <button
+                className='web_resisBtn'
+                name='id_duplicate'
+                onClick={handleCheckDuplicate}>
+                중복확인
+            </button>
+            </div>
+            <br />
+            <p className='rtitle'>비밀번호</p>
+            <div id="visi">         
+            <input className='web_rinput'
+                id='pwdInput'
+                type="password"
+                placeholder='비밀번호를 입력해주세요'
+                name="pw"
+                onChange={handleChange}
+                value={userInfo.pw}
+            />
+            <img id="visible" src="/img/visible.png" width='30px' onClick={(e)=>pwVisibility} ></img>
+            </div>
+            <br />
+            <p className='rtitle'>닉네임</p>
 
+            <input className="web_rinput"
+                type="text"
+                placeholder='사람들에게 보여질 이름을 입력해주세요'
+                name="nickname"
+                onChange={handleChange}
+                value={userInfo.nickname}
+            />
+
+            <br />
+            <p className='rtitle'>비밀번호 찾기 질문</p>
+            <select id='web_questionSelect' onChange={web_onChangeQuestion} value={userInfo.questionNum}>
+                <option value='0'>질문을 선택해주세요</option>
+                <option value='1'>{questions["1"]}</option>
+                <option value='2'>{questions["2"]}</option>
+                <option value='3'>{questions["3"]}</option>
+                <option value='4'>{questions["4"]}</option>
+            </select>
+            <br />
+            <p className='rtitle'>비밀번호 찾기 답변</p>
+
+            <input className='web_rinput'
+                id='answer'
+                type="text"
+                name='answer'
+                onChange={handleChange}
+                value={userInfo.answer}
+            />
+            <button className="resisBtn2" onClick={handleClick}>회원가입</button>
+        </div>
+        </>
+        )
+        }
+        </>
     );
 }
 

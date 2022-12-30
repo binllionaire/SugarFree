@@ -32,6 +32,7 @@ code {
 #root {
 	overflow: hidden;
 	height: 100vh;
+  background-color: #F2DBD8;
 }
 
 .imgbutton {
